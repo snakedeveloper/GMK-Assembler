@@ -51,7 +51,7 @@ Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChang
 [Registry]                 
 Root: HKCU; Subkey: "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.gmkasm"; Flags: uninsdeletekey
 Root: HKCU; Subkey: "Software\Classes\.gmkasm"; Flags: uninsdeletekey
-Root: HKCU; Subkey: "Software\Classes\.gmkasm\GMKAssembler.Project"; Flags: uninsdeletekey
+Root: HKCU; Subkey: "Software\Classes\GMKAssembler.Project"; Flags: uninsdeletekey
 
 [Code]
 function InitializeSetup(): Boolean;
