@@ -131,6 +131,10 @@ namespace GameMaker.Format {
         Write( 0 );
     }
 
+    public void WriteBytes( byte[] aBuffer ) {
+      base.Write( aBuffer );
+    }
+
     public override void Write( bool aBool ) {
       Write( (int) (aBool ? 1 : 0) );
     }

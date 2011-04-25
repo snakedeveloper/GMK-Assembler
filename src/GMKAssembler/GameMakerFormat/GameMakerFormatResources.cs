@@ -1247,8 +1247,8 @@ namespace GameMaker.Format.Resources {
 
     public override void ReadFrom( GMBinaryReader aReader ) {
       GameID = aReader.ReadInt32();
-      aReader.BaseStream.Position += 16;
-
+      GameGuid = new Guid( aReader.ReadBytes( 16 ) );
+      
       aReader.ValidateChunkVersion();
 
       using ( MemoryStream memoryStream = new MemoryStream() )
@@ -1339,7 +1339,7 @@ namespace GameMaker.Format.Resources {
 
     public override void WriteTo( GMBinaryWriter aWriter ) {
       aWriter.Write( GameID );
-      aWriter.Write( Decimal.Zero ); // 16bytes
+      aWriter.WriteBytes( GameGuid.ToByteArray() );
 
       aWriter.Write( FormatConstants.GMVersion80 );
 
@@ -1427,11 +1427,11 @@ namespace GameMaker.Format.Resources {
         aWriter.CompressStreamToChunk( memoryStream );
       }
     }
-
-
+    
     #region fields
 
     public int GameID;
+    public Guid GameGuid = Guid.Empty;
 
     public bool FullScreenMode,
                 PixelInterpolation,
