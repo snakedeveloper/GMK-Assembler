@@ -49,15 +49,14 @@ namespace GMKAssembler {
       var versions = new string[] { "Version 8.1", "Version 8", "Version 7" };
 
       if ( String.IsNullOrEmpty( Settings.Default.LibPath ) ) {
+        Settings.Default.LibPath = Environment.ExpandEnvironmentVariables( @"%APPDATA%\GameMaker\lib" );
+
         foreach ( var version in versions ) {
           var path = (string) Registry.GetValue( @"HKEY_CURRENT_USER\Software\Game Maker\" + version + @"\Preferences", "Directory", null );
           if ( !String.IsNullOrWhiteSpace( path ) ) {
             Settings.Default.LibPath = Path.Combine( path, "lib" );
-            break;
+            return;
           }
-
-          if ( String.IsNullOrEmpty( Settings.Default.LibPath ) )
-            Settings.Default.LibPath = Environment.ExpandEnvironmentVariables( @"%APPDATA%\GameMaker\lib" );
         }
       }
     }
@@ -126,12 +125,9 @@ namespace GMKAssembler {
 
     private static void DebugLogWriteHeader() {
       if ( !File.Exists( "debug.log" ) ) {
-        ObjectQuery querySystem = new ObjectQuery( "select BootupState,SystemType,TotalPhysicalMemory " +
-                                                   "from Win32_ComputerSystem" );
-        ObjectQuery queryOs = new ObjectQuery( "select Caption,CodeSet,Locale,MaxProcessMemorySize,OSLanguage,Version " +
-                                               "from Win32_OperatingSystem" );
-
-        ManagementObjectSearcher searcher = new ManagementObjectSearcher( querySystem );
+        var querySystem = new ObjectQuery( "select BootupState,SystemType,TotalPhysicalMemory from Win32_ComputerSystem" );
+        var queryOs = new ObjectQuery( "select Caption,CodeSet,Locale,MaxProcessMemorySize,OSLanguage,Version from Win32_OperatingSystem" );
+        var searcher = new ManagementObjectSearcher( querySystem );
 
         Trace.WriteLine( "System" );
         Trace.Indent();
