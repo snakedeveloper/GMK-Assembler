@@ -6,4 +6,4 @@ GMK Assembler is used to decompile Game Maker game projects into separate data f
 # Download
 ![GMK Assembler v0.1.0](https://github.com/downloads/snakedeveloper/GMK-Assembler/gmk-assembler-0.1.0.exe)
 
-(requires .NET Framework 4.0; the installer should detect if you have it and allow you to download if you don't, but you can also download it ![here](https://www.microsoft.com/en-us/download/details.aspx?id=17113))
+requires .NET Framework 4.0; the installer should detect if you have it and allow you to download if you don't, but you can also download it here: https://www.microsoft.com/en-us/download/details.aspx?id=17113
