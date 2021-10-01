@@ -1,5 +1,5 @@
 # GMK Assembler
-GMK Assembler is used to decompose Game Maker game projects into separate data files and allows you to rebuild your project from them. The current version supports GM file versions 8.0 to 8.1.71. So far it only allows exporting/importing XML files in "Accurate" mode. Project is open source, released under GPL license.
+GMK Assembler is used to decompile Game Maker game projects into separate data files and allows you to rebuild your project from them. The current version supports GM file versions 8.0 to 8.1.71. So far it only allows exporting/importing XML files in "Accurate" mode. Project is open source, released under GPL license.
 
 ![Screenshot](https://github.com/snakedeveloper/GMK-Assembler/blob/master/gmkassembler.png?raw=true)
 
